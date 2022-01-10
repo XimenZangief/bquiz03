@@ -1,4 +1,22 @@
-<div></div>
+<div>
+    <form action="api/edit_poster.php" method="post">
+        <?php
+        $rows=$Poster->all(" ORDER by `rank`");
+        foreach($rows as $row){
+        ?>
+
+    <div style="display:flex;" class="ct">
+        <div style="width: 25%;">
+        <img src="img/<?=$row['path'];?>" style="width: 60%;">
+        </div>
+    </div>
+
+        <?php
+        
+        ?>
+    </form>
+
+</div>
 <div>
     <h4 class="ct">新增預告片海報</h4>
     <form action="api/add_poster.php" method="POST" enctype="multipart/form-data">
