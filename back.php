@@ -30,14 +30,7 @@
     </div>
     <div id="mm">
       <?php
-      // 要記得我這邊是back唷>_^
-      $do = $_GET['do'] ?? 'main';
-      $file = 'back/' . $do . '.php';
-      if (file_exists($file)) {
-        include $file;
-      } else {
         include '/back/main.php';
-      }
       ?>
     </div>
     <div id="bo"> ©Copyright 2010~2014 ABC影城 版權所有 </div>
