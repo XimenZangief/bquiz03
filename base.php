@@ -140,7 +140,7 @@ function to($url){
 
 $Moive=new DB('movie');
 $Ord=new DB('ord');
-$Post=new DB('post');
+$Poster=new DB('poster');
 
 
 
