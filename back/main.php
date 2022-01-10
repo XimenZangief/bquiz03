@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 if(!empty($_POST)){
     if($_POST['acc']=='admin' && $_POST['pwd']=='1234'){
         // 因為題目沒特別要求要註冊，所以直接寫死
