@@ -12,21 +12,21 @@ if(!empty($_POST)){
 if (isset($_SESSION['login'])) {
 ?>
     <div class="ct a rb" style="position:relative; width:101.5%; left:-1%; padding:3px; top:-9px;">
-        <a href="?back.php&do=title">網站標題管理</a>|
-        <a href="?back.php&do=go">動態文字管理</a>|
-        <a href="?back.php&do=poster">預告片海報管理</a>|
-        <a href="?back.php&do=movie">院線片管理</a>|
-        <a href="?back.php&do=order">電影訂票管理</a>
+        <a href="?do=title">網站標題管理</a>|
+        <a href="?do=go">動態文字管理</a>|
+        <a href="?do=poster">預告片海報管理</a>|
+        <a href="?do=movie">院線片管理</a>|
+        <a href="?do=order">電影訂票管理</a>
     </div>
 
     <?php
 
       // 要記得我這邊是back唷>_^
-      $do = $_GET['do'] ?? 'main';
+      $do = $_GET['do'] ?? '';
       if($do!='main'){
           $file = 'back/' . $do . '.php';
       }else{
-          $file=';'
+          $file='';
       }
       if (file_exists($file)) {
         include $file;
