@@ -138,7 +138,7 @@ function to($url){
     header("location:".$url);
 }
 
-$Moive=new DB('movie');
+$Movie=new DB('movie');
 $Ord=new DB('ord');
 $Poster=new DB('poster');
 

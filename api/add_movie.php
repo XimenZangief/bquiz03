@@ -12,9 +12,9 @@ if(isset($_FILES['poster']['tmp_name'])){
 // 傳入的$_POST可以直接被修改
 // 原生
 // $_POST['ondate']=$_POST['year']."-".$_POST['month']."-".$_POST['day'];
-// join或是implode函式
-$_POST['ondate']=join("-",$_POST['year'],$_POST['month'],$_POST['day']);
-$_POST['rank']=$Movie->math('max','id');
+// join("-",[]);或是implode函式
+$_POST['ondate']=join("-",[$_POST['year'],$_POST['month'],$_POST['day']]);
+$_POST['rank']=$Movie->math('max','id')+1;
 $_POST['sh']=1;
 
 // 因為多的欄位會導致資料庫寫入失敗，所以unset刪除多餘欄位
