@@ -12,7 +12,7 @@ $row1=$db->find($id1);
 
 // 交換
 $tmp=$row0['rank'];
-$row0['rank']=$raw1['rank'];
+$row0['rank']=$row1['rank'];
 $row1['rank']=$tmp;
 
 // 兩筆資料都有變動，都必須save
