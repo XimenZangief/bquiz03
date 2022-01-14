@@ -1,5 +1,5 @@
 <h3 class='ct'>新增院線片</h3>
-<form action="api/add_movie.php" method="post" enctype="multipart/formdata">
+<form action="api/add_movie.php" method="post" enctype="multipart/form-data">
     <div style="display:flex; width:99%;">
         <div style="width:15%">影片資料</div>
         <div style="width:85%">

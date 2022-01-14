@@ -2,11 +2,11 @@
 
 if(isset($_FILES['trailer']['tmp_name'])){
     $_POST['trailer']=$_FILES['trailer']['name'];
-    move_uploaded_file($_FILES['trailer']['name'],"../img/".$_FILES['trailer']['name']);
+    move_uploaded_file($_FILES['trailer']['tmp_name'],"../img/".$_POST['trailer']);
 }
 if(isset($_FILES['poster']['tmp_name'])){
     $_POST['poster']=$_FILES['poster']['name'];
-    move_uploaded_file($_FILES['poster']['name'],"../img/".$_FILES['poster']['name']);
+    move_uploaded_file($_FILES['poster']['tmp_name'],"../img/".$_POST['poster']);
 }
 
 // 傳入的$_POST可以直接被修改
