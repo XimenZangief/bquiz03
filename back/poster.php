@@ -84,6 +84,7 @@
 
 <script>
     $('.sw').on('click',function(){
+        // split("-")分割字串並用 - 連結成陣列
         let id= $(this).data('sw').split("-");
         $.post("api/sw.php",{id,table:"poster"},()=>{
             location.reload();
