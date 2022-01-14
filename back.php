@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/css.css">
   <link rel="stylesheet" href="css/s2.css" type="text/css">
   <script src="js/jquery-1.9.1.min.js"></script>
+  <script src="js/js.js"></script>
 </head>
 
 <body>
