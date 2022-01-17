@@ -158,4 +158,22 @@
         // .icon向右滑動p*80px，用500毫秒
         $(".icon").animate({right:p*80},500);
     })
+
+    $(".icon").on("click",function(){
+        // 停止來自之前setInterval()的定時函式
+        // 然後以按下的物件的index為參數執行一次ani
+        clearInterval(slides);
+        let idx=$(this).index();
+        ani(idx);
+
+        // 直接從切換後的物件開始輪播
+        i=idx;
+        slides=setInterval(() => {
+           i++; 
+           if(i>all-1){
+               i=0;
+           }
+           ani(i);
+        }, 1000);
+    })
 </script>
