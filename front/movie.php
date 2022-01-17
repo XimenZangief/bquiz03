@@ -16,7 +16,7 @@
 
 <div class="half">
     <h1>院線片清單</h1>
-    <div class="rb tab" style="width:95%;">
+    <div class="rb tab" style="width:99%;">
         <div class="movie-list">
         <?php
         // 給定當日、放映到期日變數
@@ -48,7 +48,7 @@
                 <div>
                     <div>
                         分級:
-                        <img src="icon/<?=$row['level'];?>.png">
+                        <img src="icon/<?=$row['level'];?>.png" style="width:25px;">
                         <!-- 顯示base.php的public level -->
                         <?=$Movie->level($row['level']);?>
                     </div>
@@ -58,8 +58,8 @@
                 </div>
             </div>
             <div>
-                <button onclick="location.href='do=intro&id=<?=$row['id'];?>'">電影簡介</button>
-                <button onclick="location.href='do=order&id=<?=$row['id'];?>'">線上訂票</button>
+                <button onclick="location.href='?do=intro&id=<?=$row['id'];?>'">電影簡介</button>
+                <button onclick="location.href='?do=order&id=<?=$row['id'];?>'">線上訂票</button>
             </div>
         </div>
         <?php } ?> 
