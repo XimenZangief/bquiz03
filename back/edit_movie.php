@@ -1,5 +1,9 @@
 <?php
 $movie=$Movie->find($_GET['id']);
+// date("j")，date函式取"日"，沒有前導0
+$day=date("j",strtotime($movie['ondate']));
+// date("n")，date函式取"月"，沒有前導0
+$month=date("n",strtotime($movie['ondate']));
 ?>
 
 <h3 class='ct'>編輯院線片</h3>
@@ -34,14 +38,15 @@ $movie=$Movie->find($_GET['id']);
                 <select name="month">
                     <?php
                     for ($i = 1; $i <= 12; $i++) {
-                        echo "<option value=" . $i . ">" . $i . "</option>";
-                    }
+                        $selected=($i==$month)?"selected":"";
+                        echo "<option value='$i' $selected>$i</option>";                    }
                     ?>
                 </select>月
                 <select name="day">
                     <?php
                     for ($j = 1; $j <= 31; $j++) {
-                        echo "<option value=" . $j . ">" . $j . "</option>";
+                        $selected=($j==$day)?"selected":"";
+                        echo "<option value='$j' $selected>$j</option>";
                     }
                     ?>
                 </select>日
