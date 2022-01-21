@@ -66,7 +66,7 @@
 
     $("#movie").on("change",()=>{getDays()});
 
-    
+    // 取得電影清單
     function getMovies(id){
         $.get("api/get_movies.php",{id},(movies)=>{
         $("#movie").html(movies);
@@ -74,10 +74,21 @@
         })
     }
     
+    // 取得日期
     function getDays(){
         let id=$("#movie").val();
         $.get("api/get_days.php",{id},(days)=>{
-        $("#date").html(days)
+        $("#date").html(days);
+        getSessions();
+    })
+    }
+
+    // 取得場次資料
+    function getSessions(){
+        let id=$("#movie").val();
+    let date=$("#date").val();
+    $.get("api/get_sessions.php",{id,date},(sessions)=>{
+        $("#session").html(sessions)
     })
     }
 </script>
