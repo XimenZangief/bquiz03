@@ -62,6 +62,40 @@ $session = $ss[$_GET['session']];
     <div>您已經勾選了<span id="tickets"></span>最多可以購買四張票</div>
     <div>
         <button onclick="prev()">回上一步</button>
-        <button>完成訂購</button>
+        <button onclick="order()">完成訂購</button>
     </div>
 </div>
+
+<script>
+let seats=new Array();
+
+    // 如果.check被click
+    $(".check").on('click',function(){
+
+        // 已是checked狀態時判定seats.length
+        // 小於4則push入seats陣列，否則prop, false該次選取
+        if($(this).prop('checked')){
+            if(seats.length<4){
+                seats.push(($this).val());
+            }else{
+                alert("最多四張票");
+                $(this).prop('checked',false);
+            }
+        }else{
+            seats.splice(seats.indexOf($(this.val())),1);
+        }
+        
+        // 動態顯示勾選票數
+        $("#tickets").text(seats.length);  
+        })
+
+
+    function order(){
+        let order={
+            id:$("#movie").val(),
+            date:$("#date").val(),
+            session:$("#session").val(),
+            seats
+        }
+    }
+</script>
