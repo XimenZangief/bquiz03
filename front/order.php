@@ -59,7 +59,25 @@
 </div>
 
 <script>
-    $.get("api/get_movies.php",(movies)=>{
+    
+    // 從網址取得id的值
+    let id=(new URL(location)).searchParams.get('id');
+    getMovies(id);
+
+    $("#movie").on("change",()=>{getDays()});
+
+    
+    function getMovies(id){
+        $.get("api/get_movies.php",{id},(movies)=>{
         $("#movie").html(movies);
+        getDays();
+        })
+    }
+    
+    function getDays(){
+        let id=$("#movie").val();
+        $.get("api/get_days.php",{id},(days)=>{
+        $("#date").html(days)
     })
+    }
 </script>
