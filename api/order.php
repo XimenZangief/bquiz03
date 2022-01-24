@@ -19,5 +19,27 @@ $Ord->save([
     // serialize陣列轉字串
     'seat'=>serialize($seats),
     'qt'=>count($seats)
-])
+]);
 ?>
+<style>
+    #order{
+        width:60%;
+        margin:auto;
+    }
+    .row{
+        display:flex;
+        width:100%;
+    }
+    .row .first{
+        width:20%;
+        text-align:right;
+    }
+    .row .sec{
+        width:85%;
+        text-align:left;
+    }
+    .sec select{
+        width:100%;
+    }
+
+</style>

@@ -4,8 +4,15 @@ include_once "../base.php";
 $movie = $Movie->find($_GET['id']);
 $date = $_GET['date'];
 $session = $ss[$_GET['session']];
-?>
 
+$rows=$Ord->all(['movie'=>$movie['name'],'date'=>$date,'session'=>$session]);
+$seats=[];
+foreach ($rows as $row) {
+    // unserialize()將字串轉換回陣列
+    $seats=array_merge($seats,unserialize($row['seat']));
+}
+
+?>
 <style>
     #seats {
         display: flex;
@@ -46,11 +53,15 @@ $session = $ss[$_GET['session']];
 <div id="seats">
     <?php
     for ($i = 0; $i < 20; $i++) {
-        echo "<div class='seat'>";
+        $booked=in_array($i,$seats)?'booked':'null';
+        echo "<div class='seat $booked'>";
         echo "<div class='ct'>";
         echo (floor($i / 5) + 1) . "排" . ($i % 5 + 1) . "號";
         echo "</div>";
-        echo "<input type ='checkbox' name='check' class='check' value='$i'>";
+        // 沒有被訂走的位置才會顯示checkbox
+        if(!in_array($i,$seats)){
+            echo "<input type='checkbox' name='check' class='check' value='$i'>";
+        }
         echo "</div>";
     }
     ?>
@@ -97,5 +108,8 @@ let seats=new Array();
             session:$("#session").val(),
             seats
         }
+        $.post('api/order.php',order,(result)=>{
+            $("#mm").html(result);
+        })
     }
 </script>
